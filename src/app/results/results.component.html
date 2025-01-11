@@ -1,0 +1,27 @@
+<div *ngIf="totalShopAmount">
+    Total shop amount: £{{totalShopAmount | number:'1.2-2' }}
+</div>
+<div *ngIf="!totalShopAmount">
+    <span>Enter total shop amount: </span><input type="number" name="" id="" (focus)="totalShopIsFocussed = true" (blur)="totalShopIsFocussed = false" #totalShopInput>
+</div>
+
+
+<div class="results">
+    <div class="result-container">
+        <app-result-container [person]="'Colin'" (amountAdded)="addToOurAmount($event)" (amountRemoved)="removeFromOurAmount($event)"></app-result-container>
+    </div>
+    
+    <div class="result-container">
+        <app-result-container [person]="'Hannah'" (amountAdded)="addToOurAmount($event)" (amountRemoved)="removeFromOurAmount($event)"></app-result-container>
+    </div>
+</div>
+
+<div class="btn-container" *ngIf="!resultsCalculated">
+    <button (click)="calculateMoney()">Calculate money</button>
+</div>
+
+<div class="actual-results" *ngIf="resultsCalculated">
+    Colin owes: {{finalColinAmount}}
+    <br>
+    Hannah owes: {{finalHannahAmount}}
+</div>

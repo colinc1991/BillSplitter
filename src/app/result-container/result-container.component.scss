@@ -1,0 +1,17 @@
+.previous-amount-container{
+    margin-bottom: 40px;
+
+    .previous-amount{
+        background-color: pink;
+        border: 1px solid pink;
+        padding: 10px;
+        border-radius: 15px;
+
+        .remove{
+            margin-left: 5px;
+            font-size: 10px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

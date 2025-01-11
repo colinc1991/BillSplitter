@@ -1,0 +1,9 @@
+{{person}}<app-input-box (amountEntered)="addToTotal($event)"></app-input-box>
+<br>
+
+<p *ngFor="let i of previousAmounts" class="previous-amount-container">
+    <span class="previous-amount">
+        <span class="amount">£{{i | number:'1.2-2' }}</span>
+        <span class="remove" (click)="removeAmount(i)">(remove)</span>
+    </span>
+</p>
