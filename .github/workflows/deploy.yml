@@ -28,24 +28,11 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --output-path=dist/bill-splitter --base-href="/BillSplitter/"
 
-      - name: Create gzip tarball of the build
-        run: |
-          tar -czf dist/bill-splitter.tar.gz -C dist bill-splitter
-
-      - name: Check artifact size
-        run: du -sh dist/bill-splitter.tar.gz
-
-      - name: List contents of the tarball
-        run: tar -tzf dist/bill-splitter.tar.gz
-
-      - name: Upload tarball artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
-          path: dist/bill-splitter.tar.gz
+          path: dist/bill-splitter
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
-        with:
-          artifact_name: github-pages
+        uses: actions/deploy-pages@v4
