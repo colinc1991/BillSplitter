@@ -29,6 +29,10 @@ jobs:
         run: npm run build -- --output-path=dist/bill-splitter --base-href="/BillSplitter/"
 
       # Debugging steps
+
+      - name: Debug uploaded artifact content
+        run: ls -R dist/bill-splitter
+
       - name: Check for symlinks
         run: find dist/bill-splitter -type l -exec ls -l {} \;
 
