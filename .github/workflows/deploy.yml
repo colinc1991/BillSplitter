@@ -29,9 +29,8 @@ jobs:
         run: npm run build -- --output-path=dist/bill-splitter --base-href="/BillSplitter/"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: github-pages
           path: dist/bill-splitter
 
       - name: Deploy to GitHub Pages
