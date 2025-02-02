@@ -39,7 +39,7 @@ jobs:
         run: tar -tzf dist/bill-splitter.tar.gz
 
       - name: Upload tarball artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: github-pages
           path: dist/bill-splitter.tar.gz
