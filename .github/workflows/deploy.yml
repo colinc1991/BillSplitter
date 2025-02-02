@@ -28,28 +28,15 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --output-path=dist/bill-splitter --base-href="/BillSplitter/"
 
-      # Debugging steps
+      - name: Create gzip tarball of the build
+        run: |
+          tar -czf dist/bill-splitter.tar.gz -C dist bill-splitter
 
-      - name: Debug uploaded artifact content
-        run: ls -R dist/bill-splitter
-
-      - name: Check for symlinks
-        run: find dist/bill-splitter -type l -exec ls -l {} \;
-
-      - name: Check build output size
-        run: du -sh dist/bill-splitter
-
-      - name: Remove unnecessary files
-        run: rm -rf dist/bill-splitter/**/*.map
-
-      - name: Fix file permissions
-        run: chmod -R 755 dist/bill-splitter
-
-      - name: Upload artifact
+      - name: Upload tarball artifact
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: dist/bill-splitter
+          path: dist/bill-splitter.tar.gz
 
       - name: Deploy to GitHub Pages
         id: deployment
