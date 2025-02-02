@@ -22,11 +22,20 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies
-        run: npm install
+      - name: Clean install
+        run: rm -rf node_modules dist && npm install
 
       - name: Build Angular app
         run: npm run build -- --output-path=dist/bill-splitter --base-href="/BillSplitter/"
+
+      - name: List artifact contents (debug)
+        run: ls -R dist/bill-splitter
+
+      - name: Check for symlinks (debug)
+        run: find dist/bill-splitter -type l
+
+      - name: Check artifact size (debug)
+        run: du -sh dist/bill-splitter
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -34,6 +43,11 @@ jobs:
           name: github-pages
           path: dist/bill-splitter
 
+      - name: Debug artifact upload
+        run: ls -lah dist/bill-splitter
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          verbose: true
