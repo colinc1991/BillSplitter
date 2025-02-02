@@ -32,6 +32,12 @@ jobs:
         run: |
           tar -czf dist/bill-splitter.tar.gz -C dist bill-splitter
 
+      - name: Check artifact size
+        run: du -sh dist/bill-splitter.tar.gz
+
+      - name: List contents of the tarball
+        run: tar -tzf dist/bill-splitter.tar.gz
+
       - name: Upload tarball artifact
         uses: actions/upload-artifact@v4
         with:
