@@ -28,6 +28,9 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --output-path=dist/bill-splitter --base-href="/BillSplitter/"
 
+      - name: Fix file permissions
+        run: chmod -R 755 dist/bill-splitter
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
