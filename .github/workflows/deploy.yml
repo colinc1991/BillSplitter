@@ -33,9 +33,6 @@ jobs:
         with:
           path: dist/bill-splitter/
 
-      - name: Debug artifact upload
-        run: ls -lah dist/bill-splitter
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
