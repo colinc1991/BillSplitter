@@ -28,20 +28,10 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --output-path=dist/bill-splitter --base-href="/BillSplitter/"
 
-      - name: List artifact contents (debug)
-        run: ls -R dist/bill-splitter
-
-      - name: Check for symlinks (debug)
-        run: find dist/bill-splitter -type l
-
-      - name: Check artifact size (debug)
-        run: du -sh dist/bill-splitter
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
-          path: dist/bill-splitter
+          path: dist/bill-splitter/
 
       - name: Debug artifact upload
         run: ls -lah dist/bill-splitter
