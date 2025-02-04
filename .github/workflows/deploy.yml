@@ -38,7 +38,7 @@ jobs:
         run: du -sh dist/bill-splitter
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v3
         with:
           name: github-pages
           path: dist/bill-splitter
