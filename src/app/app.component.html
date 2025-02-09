@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <app-names-and-salaries (settingsSaved)="hasExistingSettings=true"
+    <app-names-and-salaries (settingsSaved)="hasExistingSettings=$event"
         *ngIf="!hasExistingSettings"></app-names-and-salaries>
     <div class="container" *ngIf="hasExistingSettings">
         <app-config></app-config>
