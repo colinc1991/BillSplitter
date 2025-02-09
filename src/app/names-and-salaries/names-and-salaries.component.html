@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="sub-container" *ngIf="!namesEntered">
+        <h1>Names</h1>
+        <p>Enter your names:</p>
+        <input type="text" name="person1" id="person1" [(ngModel)]="personOneName">
+        <br>
+        <input type="text" name="person2" id="person2" [(ngModel)]="personTwoName">
+        <br>
+        <button (click)="saveNames()">Ok</button>
+    </div>
+
+    <div class="sub-container" *ngIf="namesEntered">
+        <h1>Salaries</h1>
+        <p>Enter your monthly take-home pay:</p>
+
+        <p>Salary for {{personOneName}}</p>
+        <input type="number" name="salary1" id="salary1" [(ngModel)]="personOneSalary">
+        <br>
+        <p>Salary for {{personTwoName}}</p>
+        <input type="number" name="salary2" id="salary2" [(ngModel)]="personTwoSalary">
+        <br>
+        <button (click)="saveSalaries()">Ok</button>
+    </div>
+</div>

@@ -11,6 +11,7 @@ export class ResultContainerComponent implements OnInit {
     totalAmount: number;
     previousAmounts: number[];
     @Input() person: string;
+    @Input() personId: number; // need to distinguish between which person we're talking about
     @Output() amountAdded = new EventEmitter<number>();
     @Output() amountRemoved = new EventEmitter<number>();
 
@@ -27,24 +28,24 @@ export class ResultContainerComponent implements OnInit {
         this.setTotalAmount();
     }
 
-    removeAmount(amount: number):void {
+    removeAmount(amount: number): void {
         this.previousAmounts = this.previousAmounts.filter(a => a != amount);
         this.amountRemoved.emit(amount);
         this.setTotalAmount();
     }
 
-    sumArray(array: number[]){
+    sumArray(array: number[]) {
         return array.reduce((partialSum, a) => partialSum + a, 0);
     }
 
-    setTotalAmount(){
+    setTotalAmount() {
         this.totalAmount = this.sumArray(this.previousAmounts);
 
-        if (this.person == 'Colin'){
-            this.calcService.colinAmount = this.totalAmount;
+        if (this.personId == 1) {
+            this.calcService.personOneAmount = this.totalAmount;
         }
-        else{
-            this.calcService.hannahAmount = this.totalAmount;
+        else {
+            this.calcService.personTwoAmount = this.totalAmount;
         }
     }
 

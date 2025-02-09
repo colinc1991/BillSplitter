@@ -9,8 +9,12 @@
 </head>
 
 <body>
-    <app-config></app-config>
-    <app-results></app-results>
+    <app-names-and-salaries (settingsSaved)="hasExistingSettings=true"
+        *ngIf="!hasExistingSettings"></app-names-and-salaries>
+    <div class="container" *ngIf="hasExistingSettings">
+        <app-config></app-config>
+        <app-results></app-results>
+    </div>
 </body>
 
 </html>
