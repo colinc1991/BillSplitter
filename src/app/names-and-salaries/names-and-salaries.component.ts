@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NamesAndSalaries } from '../types';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-names-and-salaries',
