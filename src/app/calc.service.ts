@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class CalcService {
 
-    colinAmount: number = 0;
-    hannahAmount: number = 0;
-    colinPercentage: number = 0;
-    hannahPercentage: number = 0;
-    
-    constructor() {}
+    personOneAmount: number = 0;
+    personTwoAmount: number = 0;
+    personOnePercentage: number = 0;
+    personTwoPercentage: number = 0;
+
+    constructor() { }
 }

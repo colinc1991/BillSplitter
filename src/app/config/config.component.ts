@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalcService } from '../calc.service';
+import { NamesAndSalaries } from '../types';
 
 @Component({
     selector: 'app-config',
@@ -8,24 +9,20 @@ import { CalcService } from '../calc.service';
 })
 export class ConfigComponent implements OnInit {
 
-    colinSalary: number;
-    hannahSalary: number;
-    colinPercentage: number;
-    hannahPercentage: number;
-    totalSalary: number;
+    namesAndSalaries: NamesAndSalaries;
 
     constructor(private calcService: CalcService) { }
 
     ngOnInit(): void {
-        this.colinSalary = 0;
-        this.hannahSalary = 0;
-        this.totalSalary = this.colinSalary + this.hannahSalary;
+        const localStorageNamesAndSalaries = localStorage.getItem('names-and-salaries');
+        if (!localStorageNamesAndSalaries) {
+            throw Error('Cant be here without having names and salaries saved...')
+        }
 
-        this.colinPercentage = parseFloat((this.colinSalary / this.totalSalary).toFixed(2)) * 100;
-        this.hannahPercentage = 100 - this.colinPercentage;
+        this.namesAndSalaries = JSON.parse(localStorageNamesAndSalaries);
 
-        this.calcService.colinPercentage = this.colinPercentage;
-        this.calcService.hannahPercentage = this.hannahPercentage;
+        this.calcService.personOnePercentage = this.namesAndSalaries.personOne.percentage;
+        this.calcService.personTwoPercentage = this.namesAndSalaries.personTwo.percentage;
     }
 
 }

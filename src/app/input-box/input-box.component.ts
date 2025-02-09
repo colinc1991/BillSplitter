@@ -19,8 +19,6 @@ export class InputBoxComponent implements OnInit {
 
     @HostListener('document:keypress', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) {
-        event.key;
-
         if (event.key == 'Enter' && this.amount != null && this.isFocussed) {
             this.amountEntered.emit(this.amount);
             this.amount = null;

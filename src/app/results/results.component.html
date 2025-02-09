@@ -1,18 +1,21 @@
-<div *ngIf="totalShopAmount">
-    Total shop amount: £{{totalShopAmount | number:'1.2-2' }}
+<div *ngIf="totalBill">
+    Total bill: £{{totalBill | number:'1.2-2' }}
 </div>
-<div *ngIf="!totalShopAmount">
-    <span>Enter total shop amount: </span><input type="number" name="" id="" (focus)="totalShopIsFocussed = true" (blur)="totalShopIsFocussed = false" #totalShopInput>
+<div *ngIf="!totalBill">
+    <span>Enter total bill: </span><input type="number" name="" id="" (focus)="totalBillIsFocussed = true"
+        (blur)="totalBillIsFocussed = false" #totalBillInput>
 </div>
 
 
 <div class="results">
     <div class="result-container">
-        <app-result-container [person]="'Colin'" (amountAdded)="addToOurAmount($event)" (amountRemoved)="removeFromOurAmount($event)"></app-result-container>
+        <app-result-container [personId]="1" [person]='namesAndSalaries.personOne.name'
+            (amountAdded)="addToOurAmount($event)" (amountRemoved)="removeFromOurAmount($event)"></app-result-container>
     </div>
-    
+
     <div class="result-container">
-        <app-result-container [person]="'Hannah'" (amountAdded)="addToOurAmount($event)" (amountRemoved)="removeFromOurAmount($event)"></app-result-container>
+        <app-result-container [personId]="2" [person]='namesAndSalaries.personTwo.name'
+            (amountAdded)="addToOurAmount($event)" (amountRemoved)="removeFromOurAmount($event)"></app-result-container>
     </div>
 </div>
 
@@ -21,7 +24,7 @@
 </div>
 
 <div class="actual-results" *ngIf="resultsCalculated">
-    Colin owes: {{finalColinAmount}}
+    {{namesAndSalaries.personOne.name}} owes: {{finalpersonOneAmount}}
     <br>
-    Hannah owes: {{finalHannahAmount}}
+    {{namesAndSalaries.personTwo.name}} owes: {{finalpersonTwoAmount}}
 </div>
