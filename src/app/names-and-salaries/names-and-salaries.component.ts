@@ -4,7 +4,8 @@ import { NamesAndSalaries } from '../types';
 @Component({
     selector: 'app-names-and-salaries',
     templateUrl: './names-and-salaries.component.html',
-    styleUrls: ['./names-and-salaries.component.scss']
+    styleUrls: ['./names-and-salaries.component.scss'],
+    standalone: false
 })
 
 export class NamesAndSalariesComponent implements OnInit {

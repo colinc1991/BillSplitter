@@ -5,7 +5,8 @@ import { NamesAndSalaries } from '../types';
 @Component({
     selector: 'app-config',
     templateUrl: './config.component.html',
-    styleUrls: ['./config.component.scss']
+    styleUrls: ['./config.component.scss'],
+    standalone: false
 })
 export class ConfigComponent implements OnInit {
 

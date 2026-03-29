@@ -3,7 +3,8 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 @Component({
     selector: 'app-input-box',
     templateUrl: './input-box.component.html',
-    styleUrls: ['./input-box.component.scss']
+    styleUrls: ['./input-box.component.scss'],
+    standalone: false
 })
 export class InputBoxComponent implements OnInit {
 
