@@ -4,7 +4,8 @@ import { CalcService } from '../calc.service';
 @Component({
     selector: 'app-result-container',
     templateUrl: './result-container.component.html',
-    styleUrls: ['./result-container.component.scss']
+    styleUrls: ['./result-container.component.scss'],
+    standalone: false
 })
 export class ResultContainerComponent implements OnInit {
 
